@@ -2,6 +2,8 @@ import { useState } from "react";
 import "./App.css";
 import Heading from "./components/Heading";
 import TodoList from "./components/TodoList";
+import { createContext } from "react";
+export const nightModeContext = createContext(false)
 function App() {
   const [nightMode, setNightMode] = useState(false);
   return (
