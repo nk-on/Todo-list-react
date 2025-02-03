@@ -4,7 +4,7 @@ export default function TodoInput() {
       <div className="flex justify-center items-center w-[5%]">
         <input type="radio" className="w-[24px] h-[24px] dark:bg-[#25273D]" />
       </div>
-      <input type="text" className="w-[90%] h-[64px] dark:bg-[#25273D] placeholder:text-lg" placeholder="Create a new Todo"/>;
+      <input type="text" className="w-[90%] h-[64px] dark:bg-[#25273D] dark:text-[#FFFFFF] placeholder:text-lg" placeholder="Create a new Todo"/>;
     </div>
   );
 }
