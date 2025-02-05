@@ -3,7 +3,7 @@ export default function Todo() {
     <div className="w-[100%] border-b-2 border-[#E3E4F1] p-4">
       <div className="flex justify-between w-[20%]">
         <input type="radio" className="w-[24px] h-[24px] dark:bg-[#25273D]" />
-        <p className="text-[18px]">Todo</p>
+        <p className="text-[18px dark:text-[#C8CBE7]">Todo</p>
       </div>
     </div>
   );
