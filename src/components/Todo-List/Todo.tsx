@@ -1,4 +1,7 @@
-export default function Todo({task}:{task:string}) {
+interface TaskProps {
+  task:string,
+}
+export default function Todo({task}:TaskProps) {
   return (
     <div className="w-[100%] border-b-2 border-[#E3E4F1] p-4">
       <div className="flex justify-between w-[20%]">
