@@ -1,6 +1,6 @@
 import { useRef } from "react";
 import { useContext } from "react";
-import { TodosContext } from "../../App";
+import { TodosContext } from "../../Context";
 export default function TodoInput() {
   const {Todos,SetTodos} = useContext(TodosContext);
   const task = useRef<string>("");

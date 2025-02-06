@@ -1,4 +1,4 @@
-import { TodosContext } from "../../App"
+import { TodosContext } from "../../Context"
 import { useContext } from "react"
 interface TaskProps {
   taskName:string,

@@ -2,20 +2,12 @@ import { useState } from 'react';
 import './App.css';
 import Heading from './components/Heading';
 import TodoList from './components/TodoList';
-import { createContext } from 'react';
-interface Task {
+import { TodosContext } from './Context';
+export interface Task {
   id: number;
   name: string;
   completed: boolean;
 }
-interface contextProps {
-  Todos:Task[],
-  SetTodos:React.Dispatch<React.SetStateAction<Task[]>>,
-}
-export const TodosContext = createContext<contextProps>({
-  Todos:[],
-  SetTodos:() => {},
-});
 function App() {
   const [nightMode, setNightMode] = useState(false);
   const [Todos,SetTodos] = useState<Task[]>([])
