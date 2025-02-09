@@ -11,6 +11,10 @@ export default function TodoInput() {
           type="radio"
           className="w-[24px] h-[24px] dark:bg-[#25273D]"
           onChange={(event) => {
+            if(task.current === ''){
+              event.target.checked = false;
+              return;
+            }
             const Todo = {
               id:Math.floor(Math.random()*100000),
               name:task.current,
