@@ -23,7 +23,7 @@ export default function TodoInput() {
       </div>
       <input
         type="text"
-        className="w-[90%] h-[64px] dark:bg-[#25273D] dark:text-[#FFFFFF] placeholder:text-lg"
+        className="w-[90%] h-[64px] dark:bg-[#25273D] dark:text-[#FFFFFF]  placeholder:text-lg"
         placeholder="Create a new Todo"
         onChange={(event)=>{
           task.current = event.target.value;
