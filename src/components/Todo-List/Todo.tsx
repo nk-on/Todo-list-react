@@ -6,7 +6,7 @@ interface TaskProps {
   id: number;
 }
 export default function Todo({ taskName, completed, id }: TaskProps) {
-  const { SetTodos } = useContext(TodosContext);
+  const {Todos, SetTodos } = useContext(TodosContext);
   return (
     <div className="w-[100%] border-b-2 border-[#E3E4F1] p-4">
       <div className="flex justify-between w-[20%]">
@@ -14,6 +14,12 @@ export default function Todo({ taskName, completed, id }: TaskProps) {
           type="radio"
           className="w-[24px] h-[24px] dark:bg-[#25273D]"
           onChange={(event) => {
+            const filteredTodos = Todos.filter((todoItem)=>{
+              if(id !== todoItem.id){
+                return todoItem;
+              }
+            });
+            SetTodos(filteredTodos);
             event.target.checked = false;
           }}
         />
