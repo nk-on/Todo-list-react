@@ -52,7 +52,7 @@ export default function TodoContainer() {
       <div className="w-[100%] border-b-2 border-[#E3E4F1] text-[#9495A5] p-4 flex justify-between">
         <div>5 items left</div>
         <div
-          className="font-bold hover:text-[#494C6B] cursor-pointer"
+          className="font-bold hover:text-[#494C6B] cursor-pointer dark:hover:text-[#FFFFFF]"
           onClick={() => {
             setFilterCriteria("all");
           }}
@@ -60,7 +60,7 @@ export default function TodoContainer() {
           All
         </div>
         <div
-          className="font-bold  hover:text-[#494C6B]  cursor-pointer"
+          className="font-bold  hover:text-[#494C6B]  cursor-pointer dark:hover:text-[#FFFFFF]"
           onClick={() => {
             setFilterCriteria("active");
           }}
@@ -68,7 +68,7 @@ export default function TodoContainer() {
           Active
         </div>
         <div
-          className="font-bold  hover:text-[#494C6B]  cursor-pointer"
+          className="font-bold  hover:text-[#494C6B]  cursor-pointer dark:hover:text-[#FFFFFF]"
           onClick={() => {
             setFilterCriteria("completed");
           }}
