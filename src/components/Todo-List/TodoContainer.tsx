@@ -1,8 +1,8 @@
 import Todo from "./Todo";
-import { useContext, useRef, useState } from "react";
+import { useContext ,useState } from "react";
 import { TodosContext } from "../../Context";
 export default function TodoContainer() {
-  const { Todos, SetTodos } = useContext(TodosContext);
+  const { Todos } = useContext(TodosContext);
   const [filterCriteria, setFilterCriteria] = useState<string>("all");
   const renderTodos = () => {
     if (filterCriteria === "all") {
