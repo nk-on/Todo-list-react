@@ -2,7 +2,7 @@ import Todo from "./Todo";
 import { useContext ,useState } from "react";
 import { TodosContext } from "../../Context";
 export default function TodoContainer() {
-  const { Todos } = useContext(TodosContext);
+  const { Todos,SetTodos } = useContext(TodosContext);
   const [filterCriteria, setFilterCriteria] = useState<string>("all");
   const renderTodos = () => {
     if (filterCriteria === "all") {
@@ -75,7 +75,9 @@ export default function TodoContainer() {
         >
           Completed
         </div>
-        <div>Clear Completed</div>
+        <div className="cursor-pointer" onClick={()=>{
+          SetTodos([]);
+        }}>Clear Completed</div>
       </div>
     </div>
   );
