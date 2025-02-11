@@ -1,6 +1,6 @@
 import Todo from "./Todo";
 import { useContext ,useState } from "react";
-import { TodosContext } from "../../Context";
+import { TodosContext } from "../Context";
 import { FilterOption } from "../filterOption";
 export default function TodoContainer() {
   const { Todos,SetTodos } = useContext(TodosContext);

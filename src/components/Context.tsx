@@ -1,6 +1,6 @@
 import { createContext } from "react";
-import { Task } from "./App";
-import TodoList from "./components/TodoList";
+import { Task } from "../App";
+import TodoList from "./TodoList";
 interface contextProps {
   Todos: Task[];
   SetTodos: React.Dispatch<React.SetStateAction<Task[]>>;

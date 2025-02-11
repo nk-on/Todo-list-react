@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import './App.css';
 import Heading from './components/Heading';
-import { Provider} from './Context'
+import { Provider} from './components/Context'
 export interface Task {
   id: number;
   name: string;
