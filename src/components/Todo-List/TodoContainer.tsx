@@ -1,11 +1,13 @@
 import Todo from "./Todo";
 import { useContext ,useState } from "react";
 import { TodosContext } from "../../Context";
+import { FilterOption } from "../filterOption";
 export default function TodoContainer() {
   const { Todos,SetTodos } = useContext(TodosContext);
-  const [filterCriteria, setFilterCriteria] = useState<string>("all");
+  const [filterCriteria, setFilterCriteria] = useState<string>("All");
+  const filterCriteriaArray = ["All","Completed","Active"]
   const renderTodos = () => {
-    if (filterCriteria === "all") {
+    if (filterCriteria === "All") {
       return Todos.map((todoItem) => {
         return (
           <Todo
@@ -17,7 +19,7 @@ export default function TodoContainer() {
         );
       });
     }
-    if(filterCriteria === 'completed'){
+    if(filterCriteria === 'Completed'){
       return Todos.map((todoItem) => {
         if(todoItem.completed){
           return (
@@ -31,7 +33,7 @@ export default function TodoContainer() {
         }
       });
     }
-    if(filterCriteria === 'active'){
+    if(filterCriteria === 'Active'){
       return Todos.map((todoItem) => {
         if(!todoItem.completed){
           return (
@@ -51,30 +53,9 @@ export default function TodoContainer() {
       {renderTodos()}
       <div className="w-[100%] border-b-2 border-[#E3E4F1] text-[#9495A5] p-4 flex justify-between">
         <div>{Todos.length} items left</div>
-        <div
-          className="font-bold hover:text-[#494C6B] cursor-pointer dark:hover:text-[#FFFFFF]"
-          onClick={() => {
-            setFilterCriteria("all");
-          }}
-        >
-          All
-        </div>
-        <div
-          className="font-bold  hover:text-[#494C6B]  cursor-pointer dark:hover:text-[#FFFFFF]"
-          onClick={() => {
-            setFilterCriteria("active");
-          }}
-        >
-          Active
-        </div>
-        <div
-          className="font-bold  hover:text-[#494C6B]  cursor-pointer dark:hover:text-[#FFFFFF]"
-          onClick={() => {
-            setFilterCriteria("completed");
-          }}
-        >
-          Completed
-        </div>
+        {
+          filterCriteriaArray.map(item=> <FilterOption text={item} setFilterCriteria={setFilterCriteria} />)
+        }
         <div className="cursor-pointer" onClick={()=>{
           SetTodos([]);
         }}>Clear Completed</div>
