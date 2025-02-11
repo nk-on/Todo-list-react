@@ -1,8 +1,7 @@
 import { useState } from 'react';
 import './App.css';
 import Heading from './components/Heading';
-import TodoList from './components/TodoList';
-import { TodosContext } from './Context';
+import { Provider} from './Context'
 export interface Task {
   id: number;
   name: string;
@@ -15,9 +14,7 @@ function App() {
     <>
       <div className= {`w-[100%] min-h-[100vh] ${nightMode && 'bg-[#171823]'} ${nightMode ? 'dark' : ''}`} >
           <Heading nightMode={nightMode} setNightMode={setNightMode} />
-          <TodosContext.Provider value={{Todos,SetTodos}}>
-            <TodoList />
-          </TodosContext.Provider>
+          <Provider Todos = {Todos} SetTodos = {SetTodos}/>
       </div>
     </>
   );
