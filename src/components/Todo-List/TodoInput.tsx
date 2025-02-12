@@ -2,8 +2,12 @@ import { useRef } from "react";
 import { useContext } from "react";
 import { TodosContext } from "../Context";
 export default function TodoInput() {
-  const {Todos,SetTodos} = useContext(TodosContext);
+  const { Todos, SetTodos } = useContext(TodosContext);
   const task = useRef<string>("");
+  const inputRef = useRef(null);
+  const clearInput = () => {
+    inputRef.current.value = "";
+  };
   return (
     <div className="w-[100%]  bg-[#FFFFFF] dark:bg-[#25273D] flex justify-between rounded-[5px]">
       <div className="flex justify-center items-center w-[5%]">
@@ -11,16 +15,18 @@ export default function TodoInput() {
           type="radio"
           className="w-[24px] h-[24px] dark:bg-[#25273D]"
           onChange={(event) => {
-            if(task.current === ''){
+            if (task.current === "") {
               event.target.checked = false;
               return;
             }
             const Todo = {
-              id:Math.floor(Math.random()*100000),
-              name:task.current,
-              completed:false,
-            }
-            SetTodos([...Todos,Todo])
+              id: Math.floor(Math.random() * 100000),
+              name: task.current,
+              completed: false,
+            };
+            clearInput();
+            task.current = "";
+            SetTodos([...Todos, Todo]);
             event.target.checked = false;
           }}
         />
@@ -29,7 +35,8 @@ export default function TodoInput() {
         type="text"
         className="w-[90%] h-[64px] dark:bg-[#25273D] dark:text-[#FFFFFF]  placeholder:text-lg"
         placeholder="Create a new Todo"
-        onChange={(event)=>{
+        ref={inputRef}
+        onChange={(event) => {
           task.current = event.target.value;
         }}
       />
