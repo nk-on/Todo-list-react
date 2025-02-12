@@ -6,8 +6,7 @@ interface TaskProps {
   id: number;
 }
 export default function Todo({ taskName, completed, id }: TaskProps) {
-  const { Todos, SetTodos } = useContext(TodosContext);
-  const [hovered, setHovered] = useState<boolean>(false);
+  const { Todos, SetTodos,hovered,setHovered } = useContext(TodosContext);
   return (
     <div
       className="w-[100%] border-b-2 border-[#E3E4F1] p-4 flex justify-between"
