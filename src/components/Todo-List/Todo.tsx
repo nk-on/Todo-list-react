@@ -29,7 +29,7 @@ export default function Todo({ taskName, completed, id }: TaskProps) {
             );
           }}
         >
-          {completed && <img src="public/assets/Checked.svg" alt="checked" />}
+          {completed && <img src="./assets/Checked.svg" alt="checked" />}
         </div>
         <p
           className={`text-[18px dark:text-[#C8CBE7] ${
