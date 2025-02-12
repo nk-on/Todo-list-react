@@ -26,6 +26,9 @@ export default function TodoInput() {
         }}
         onKeyDown={(event) => {
           if (event.key === "Enter") {
+            if(task.current === ""){
+              return;
+            }
             const Todo = {
               id: Math.floor(Math.random() * 100000),
               name: task.current,
