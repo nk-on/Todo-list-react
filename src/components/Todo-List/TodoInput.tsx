@@ -8,12 +8,20 @@ export default function TodoInput() {
   const clearInput = () => {
     inputRef.current.value = "";
   };
+  const Todo = {
+    id: Math.floor(Math.random() * 100000),
+    name: "",
+    completed:false,
+  };
   return (
     <div className="w-[100%]  bg-[#FFFFFF] dark:bg-[#25273D] flex justify-between rounded-[5px]">
       <div className="flex justify-center items-center w-[5%]">
         <input
           type="radio"
           className="w-[24px] h-[24px] dark:bg-[#25273D] "
+          onChange={()=>{
+            Todo.completed = true;
+          }}
         />
       </div>
       <input
@@ -29,11 +37,7 @@ export default function TodoInput() {
             if(task.current === ""){
               return;
             }
-            const Todo = {
-              id: Math.floor(Math.random() * 100000),
-              name: task.current,
-              completed: false,
-            };
+            Todo.name = task.current
             clearInput();
             task.current = "";
             SetTodos([...Todos, Todo]);
