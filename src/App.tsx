@@ -9,12 +9,11 @@ export interface Task {
 }
 function App() {
   const [nightMode, setNightMode] = useState(false);
-  const [Todos,SetTodos] = useState<Task[]>([])
   return (
     <>
       <div className= {`w-[100%] min-h-[100vh] ${nightMode && 'bg-[#171823]'} ${nightMode ? 'dark' : ''}`} >
           <Heading nightMode={nightMode} setNightMode={setNightMode} />
-          <Provider Todos = {Todos} SetTodos = {SetTodos}/>
+          <Provider />
       </div>
     </>
   );
