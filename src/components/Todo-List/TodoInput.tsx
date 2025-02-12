@@ -4,7 +4,7 @@ import { TodosContext } from "../Context";
 export default function TodoInput() {
   const { Todos, SetTodos } = useContext(TodosContext);
   const task = useRef<string>("");
-  const inputRef = useRef(null);
+  const inputRef = useRef<HTMLInputElement>(null);
   const clearInput = () => {
     inputRef.current.value = "";
   };
@@ -14,21 +14,6 @@ export default function TodoInput() {
         <input
           type="radio"
           className="w-[24px] h-[24px] dark:bg-[#25273D]"
-          onChange={(event) => {
-            if (task.current === "") {
-              event.target.checked = false;
-              return;
-            }
-            const Todo = {
-              id: Math.floor(Math.random() * 100000),
-              name: task.current,
-              completed: false,
-            };
-            clearInput();
-            task.current = "";
-            SetTodos([...Todos, Todo]);
-            event.target.checked = false;
-          }}
         />
       </div>
       <input
@@ -38,6 +23,19 @@ export default function TodoInput() {
         ref={inputRef}
         onChange={(event) => {
           task.current = event.target.value;
+        }}
+        onKeyDown={(event) => {
+          console.log("i work")
+          if (event.key === "Enter") {
+            const Todo = {
+              id: Math.floor(Math.random() * 100000),
+              name: task.current,
+              completed: false,
+            };
+            clearInput();
+            task.current = "";
+            SetTodos([...Todos, Todo]);
+          }
         }}
       />
       ;
