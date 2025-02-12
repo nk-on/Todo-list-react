@@ -13,7 +13,7 @@ export default function TodoInput() {
       <div className="flex justify-center items-center w-[5%]">
         <input
           type="radio"
-          className="w-[24px] h-[24px] dark:bg-[#25273D]"
+          className="w-[24px] h-[24px] dark:bg-[#25273D] "
         />
       </div>
       <input
