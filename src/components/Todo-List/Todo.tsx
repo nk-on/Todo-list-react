@@ -1,3 +1,4 @@
+import { CheckButton } from "../CheckButton";
 import { TodosContext } from "../Context";
 import { useContext, useState } from "react";
 interface TaskProps {
@@ -15,22 +16,18 @@ export default function Todo({ taskName, completed, id }: TaskProps) {
       onMouseLeave={() => setHovered(false)}
     >
       <div className="flex justify-between w-[20%]">
-        <div
-          className={`flex justify-center items-center w-[24px] h-[24px] rounded-[50%] border border-[#E3E4F1] dark:bg-[#25273D] cursor-pointer  ${
-            completed && "bg-gradient-to-br from-[#55DDFF] to-[#C058F3]"
-          }`}
-          onClick={() => {
-            SetTodos((prevObjects) =>
-              prevObjects.map((todoItem) => {
-                return todoItem.id === id
-                  ? { ...todoItem, completed: !completed }
-                  : todoItem;
-              })
-            );
-          }}
-        >
-          {completed && <img src="./assets/Checked.svg" alt="checked" />}
-        </div>
+        {/* i will move this checked Button component as a seaprete element with function and completed prop */}
+        <CheckButton completed={completed}  functionProp={
+          ()=>{
+            const mapedTodos = Todos.map((todoItem)=> {
+              if(todoItem.id === id){
+                todoItem.completed = !todoItem.completed
+              };
+              return todoItem;
+            } );
+            SetTodos([...mapedTodos])
+          }
+        }></CheckButton>
         <p
           className={`text-[18px dark:text-[#C8CBE7] ${
             completed && "line-through"
