@@ -7,7 +7,9 @@ export default function TodoInput() {
   const task = useRef<string>("");
   const inputRef = useRef<HTMLInputElement>(null);
   const clearInput = () => {
-    inputRef.current.value = "";
+    if(inputRef.current){
+      inputRef.current.value = ""
+    }
   };
   const Todo = {
     id: Math.floor(Math.random() * 100000),
