@@ -1,6 +1,7 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { useContext } from "react";
 import { TodosContext } from "../Context";
+import { CheckButton } from "../CheckButton";
 export default function TodoInput() {
   const { Todos, SetTodos } = useContext(TodosContext);
   const task = useRef<string>("");
@@ -13,16 +14,13 @@ export default function TodoInput() {
     name: "",
     completed:false,
   };
+  const [checked,setChecked] = useState(false)
   return (
     <div className="w-[100%]  bg-[#FFFFFF] dark:bg-[#25273D] flex justify-between rounded-[5px]">
       <div className="flex justify-center items-center w-[5%]">
-        <input
-          type="radio"
-          className="w-[24px] h-[24px] dark:bg-[#25273D] "
-          onChange={()=>{
-            Todo.completed = true;
-          }}
-        />
+        <CheckButton completed = {checked} functionProp={()=>{
+            setChecked(!checked)
+          }}/>
       </div>
       <input
         type="text"
@@ -39,6 +37,7 @@ export default function TodoInput() {
             }
             Todo.name = task.current
             clearInput();
+            Todo.completed = checked;
             task.current = "";
             SetTodos([...Todos, Todo]);
           }
