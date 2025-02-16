@@ -3,7 +3,6 @@ interface HeadingProps {
   setNightMode: React.Dispatch<React.SetStateAction<boolean>>;
 }
 export default function Heading({ nightMode, setNightMode }: HeadingProps) {
-  // const coverImage = nightMode ? 'public/assets/cover-photo-night.jpg':'./assets/cover-photo-day.jpg';
   return (
     <div className="w-[100%] h-[300px] bg-no-repeat  bg-[url(./assets/cover-photo-day.jpg)] dark:bg-[url(./assets/cover-photo-night.jpg)] bg-cover flex justify-center items-start py-[70px]">
       <div className="flex w-[50%] justify-between">
