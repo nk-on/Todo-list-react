@@ -16,7 +16,6 @@ export default function Todo({ taskName, completed, id }: TaskProps) {
       onMouseLeave={() => setHovered(false)}
     >
       <div className="flex justify-between w-[20%]">
-        {/* i will move this checked Button component as a seaprete element with function and completed prop */}
         <CheckButton completed={completed}  functionProp={
           ()=>{
             const mapedTodos = Todos.map((todoItem)=> {
