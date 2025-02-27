@@ -36,7 +36,7 @@ export default function Todo({ taskName, completed, id }: TaskProps) {
           {taskName}
         </p>
       </div>
-      {hovered && <img src={"public/assets/Delete.svg"} className = "cursor-pointer" alt="closeSign" onClick={()=>{
+      {hovered && <img src={"/assets/Delete.svg"} className = "cursor-pointer" alt="closeSign" onClick={()=>{
         const filteredTodos = Todos.filter((todoItem)=>{
           if(todoItem.id !== id){
             return todoItem;
