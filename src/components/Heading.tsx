@@ -13,7 +13,7 @@ export default function Heading({ nightMode, setNightMode }: HeadingProps) {
             setNightMode(!nightMode)
           }}
           src={`${
-            nightMode ? "public/assets/icon-night.svg" : "./assets/icon-day-sun.svg"
+            nightMode ? "public/assets/icon-night.svg" : "public/assets/icon-day-sun.svg"
           }`}
         ></img>
       </div>
