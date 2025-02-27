@@ -4,7 +4,7 @@ interface HeadingProps {
 }
 export default function Heading({ nightMode, setNightMode }: HeadingProps) {
   return (
-    <div className="w-[100%] h-[300px] bg-no-repeat  bg-[url(./assets/cover-photo-day.jpg)] dark:bg-[url(./assets/cover-photo-night.jpg)] bg-cover flex justify-center items-start py-[70px]">
+    <div className="w-[100%] h-[300px] bg-no-repeat  bg-[url(/assets/cover-photo-day.jpg)] dark:bg-[url(/assets/cover-photo-night.jpg)] bg-cover flex justify-center items-start py-[70px]">
       <div className="flex w-[50%] justify-between">
         <h1 className="text-[#FFFFFF] font-bold text-[40px] tracking-[0.5em] uppercase">Todo</h1>
         <img
