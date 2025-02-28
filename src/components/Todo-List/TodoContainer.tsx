@@ -24,8 +24,8 @@ export default function TodoContainer() {
       {renderTodos()}
       <div className="min-w-[100%] flex gap-[5px] border-b-2 border-[#E3E4F1] text-[#9495A5] p-4 flex justify-between">
         <div>{Todos.length} items left</div>
-        {filterCriteriaArray.map((item) => (
-          <FilterOption text={item} setFilterCriteria={setFilterCriteria} />
+        {filterCriteriaArray.map((item,index) => (
+          <FilterOption key={index} text={item} setFilterCriteria={setFilterCriteria} />
         ))}
         <div
           className="cursor-pointer"
