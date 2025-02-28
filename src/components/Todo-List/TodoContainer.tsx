@@ -20,9 +20,9 @@ export default function TodoContainer() {
     });
   };
   return (
-    <div className="w-[100%] shadow-[0px_35px_50px_-15px_#C2C3D680] bg-[#FFFFFF] dark:bg-[#25273D] dark:shadow-[0px_35px_50px_-15px_#00000080]">
+    <div className="lg:w-[100%] shadow-[0px_35px_50px_-15px_#C2C3D680] bg-[#FFFFFF] dark:bg-[#25273D] dark:shadow-[0px_35px_50px_-15px_#00000080]">
       {renderTodos()}
-      <div className="w-[100%] border-b-2 border-[#E3E4F1] text-[#9495A5] p-4 flex justify-between">
+      <div className="min-w-[100%] flex gap-[5px] border-b-2 border-[#E3E4F1] text-[#9495A5] p-4 flex justify-between">
         <div>{Todos.length} items left</div>
         {filterCriteriaArray.map((item) => (
           <FilterOption text={item} setFilterCriteria={setFilterCriteria} />
