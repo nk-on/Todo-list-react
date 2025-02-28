@@ -18,7 +18,7 @@ export default function TodoInput() {
   };
   const [checked,setChecked] = useState(false)
   return (
-    <div className="w-[150%]  bg-[#FFFFFF] dark:bg-[#25273D] flex justify-between rounded-[5px]">
+    <div className="lg:w-[100%] w-[150%]  bg-[#FFFFFF] dark:bg-[#25273D] flex justify-between rounded-[5px]">
       <div className="flex justify-center items-center w-[5%]">
         <CheckButton completed = {checked} functionProp={()=>{
             setChecked(!checked)
