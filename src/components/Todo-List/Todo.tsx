@@ -15,7 +15,7 @@ export default function Todo({ taskName, completed, id }: TaskProps) {
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
-      <div className="flex justify-between w-[20%]">
+      <div className="flex gap-[30px]">
         <CheckButton completed={completed}  functionProp={
           ()=>{
             const mapedTodos = Todos.map((todoItem)=> {
