@@ -1,13 +1,25 @@
 import Todo from "./Todo";
-import { useContext, useState } from "react";
+import { useContext, useReducer } from "react";
 import { TodosContext } from "../Context";
 import { FilterOption } from "../filterOption";
+function reducer(state:{criteria:string | boolean},action:{type:string}):{criteria:string | boolean}{
+  const {type} = action;
+  switch(type){
+    case 'Completed':
+      return {...state,criteria:true}
+    case 'Active':
+      return {...state,criteria:false}
+    default:
+      return {...state,criteria:'All'}
+  }
+}
 export default function TodoContainer() {
   const { Todos, SetTodos } = useContext(TodosContext);
-  const [filterCriteria, setFilterCriteria] = useState<boolean | string>("All");
+  const [filterCriteria,dispatch] = useReducer(reducer,{criteria:"All"});
+  const {criteria} = filterCriteria;
   const filterCriteriaArray = ["All", "Completed", "Active"];
   const renderTodos = () => {
-    const filteredTodos = filterCriteria === "All" ? Todos : Todos.filter((todo) => todo.completed === filterCriteria);
+    const filteredTodos = criteria === "All" ? Todos : Todos.filter((todo) => todo.completed === criteria);
     return filteredTodos.map((todoItem) => {
       return (
         <Todo
@@ -25,7 +37,7 @@ export default function TodoContainer() {
       <div className="min-w-[100%]  gap-[5px] border-b-2 border-[#E3E4F1] text-[#9495A5] p-4 flex justify-between">
         <div>{Todos.length} items left</div>
         {filterCriteriaArray.map((item,index) => (
-          <FilterOption key={index} text={item} setFilterCriteria={setFilterCriteria} />
+          <FilterOption key={index} text={item} dispatch={dispatch} />
         ))}
         <div
           className="cursor-pointer"

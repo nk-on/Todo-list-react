@@ -1,14 +1,13 @@
+import { Dispatch } from "react";
 interface FilterOptionProps  {
     text:string,
-    setFilterCriteria: React.Dispatch<React.SetStateAction<boolean | string>>
+    dispatch:Dispatch<{ type: string; }>
 }
-export function FilterOption({text,setFilterCriteria}:FilterOptionProps){
+export function FilterOption({text,dispatch}:FilterOptionProps){
     return (
         <div
         className="font-bold  hover:text-[#494C6B]  cursor-pointer dark:hover:text-[#FFFFFF]"
-        onClick={() => {
-          setFilterCriteria(text === "Completed" ? true : false);
-        }}
+        onClick={() => dispatch({type:text})}
       >
         {text}
       </div>
